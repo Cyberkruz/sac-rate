@@ -1,15 +1,16 @@
 <template>
   <div>
-    <form>
+    <form novalidate @submit="$v.$touch()" @click.prevent="validateform">
       <div class="form-row">
         <div class="form-group col-sm">
           <label for="psiIn">Starting Pressure</label>
           <div class="input-group">
-            <input v-model="psiIn" type="text" class="form-control" id="psiIn">
+            <input v-model="psiIn" type="text" class="form-control" id="psiIn" :class="{ 'is-invalid': $v.psiIn.$error }" v-model.trim="$v.psiIn.$model">
             <div class="input-group-append">
               <span class="input-group-text">PSI</span>
             </div>
           </div>
+          <div class="error" v-if="!$v.psiIn.required">Password is required.</div>
         </div>
         <div class="form-group col-sm">
           <label for="psiOut">Ending Pressure</label>
