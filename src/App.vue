@@ -8,9 +8,6 @@
         <div class="col-lg">
           <sac-rate />
         </div>
-        <div class="col-lg">
-
-        </div>
       </div>
     </div>
   </div>
